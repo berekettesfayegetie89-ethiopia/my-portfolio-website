@@ -1,0 +1,30 @@
+/* Corporate style enhancements */
+.corporate-style {
+    /* Additional corporate styles if needed */
+}
+
+.corporate-style .hero {
+    background-color: var(--bg-secondary);
+}
+
+.corporate-style .project-card,
+.corporate-style .skill-category,
+.corporate-style .education-card,
+.corporate-style .cert-card {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.corporate-style .section-title::after {
+    width: 80px;
+    height: 3px;
+}
+
+.corporate-style .btn {
+    border-radius: 3px;
+}
+
+.corporate-style .navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}

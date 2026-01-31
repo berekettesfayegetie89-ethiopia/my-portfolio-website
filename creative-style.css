@@ -1,0 +1,23 @@
+/* Creative style enhancements */
+.creative-style {
+    /* Additional creative styles if needed */
+}
+
+.creative-style .hero {
+    background: linear-gradient(135deg, #f3e8ff 0%, #faf5ff 100%);
+}
+
+.creative-style .project-card {
+    border-top: 5px solid var(--primary-color);
+}
+
+.creative-style .skill-category, 
+.creative-style .education-card,
+.creative-style .cert-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.creative-style .section-title::after {
+    width: 100px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}

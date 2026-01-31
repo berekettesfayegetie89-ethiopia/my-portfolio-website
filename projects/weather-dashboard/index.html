@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard | Real-time Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard Pro</h1>
+                <p class="subtitle">Real-time weather data with 7-day forecast and historical trends</p>
+            </div>
+            <div class="header-actions">
+                <div class="unit-toggle">
+                    <button id="unitC" class="unit-btn active">°C</button>
+                    <button id="unitF" class="unit-btn">°F</button>
+                </div>
+                <button id="refreshBtn" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="cityInput" placeholder="Enter city name..." value="New York">
+                    <button id="searchBtn" class="btn btn-primary">Search</button>
+                </div>
+                <div class="recent-searches">
+                    <span>Recent:</span>
+                    <button class="recent-city" data-city="London">London</button>
+                    <button class="recent-city" data-city="Tokyo">Tokyo</button>
+                    <button class="recent-city" data-city="Sydney">Sydney</button>
+                    <button class="recent-city" data-city="Paris">Paris</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="current-weather" id="currentWeather">
+            <!-- Current weather will be loaded here -->
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading weather data...</p>
+            </div>
+        </div>
+
+        <div class="weather-grid">
+            <div class="forecast-section">
+                <h3><i class="fas fa-calendar-alt"></i> 7-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast will be loaded here -->
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3><i class="fas fa-info-circle"></i> Weather Details</h3>
+                <div class="details-grid" id="weatherDetails">
+                    <!-- Weather details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="hourly-section">
+            <div class="section-header">
+                <h3><i class="fas fa-clock"></i> 24-Hour Forecast</h3>
+                <div class="hourly-controls">
+                    <button id="prevHour" class="btn-icon"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextHour" class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="hourly-container">
+                <div class="hourly-scroll" id="hourlyScroll">
+                    <!-- Hourly forecast will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="air-quality-section">
+            <h3><i class="fas fa-wind"></i> Air Quality Index</h3>
+            <div class="air-quality-card" id="airQuality">
+                <!-- Air quality will be loaded here -->
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h3><i class="fas fa-map-marked-alt"></i> Weather Map</h3>
+            <div class="map-container">
+                <div class="map-placeholder" id="mapPlaceholder">
+                    <i class="fas fa-globe-americas"></i>
+                    <p>Interactive weather map would display here with a real API</p>
+                    <p class="map-note">In a production environment, this would integrate with Google Maps or OpenStreetMap API</p>
+                </div>
+                <div class="map-controls">
+                    <button class="map-layer active" data-layer="temperature">
+                        <i class="fas fa-thermometer-half"></i> Temperature
+                    </button>
+                    <button class="map-layer" data-layer="precipitation">
+                        <i class="fas fa-cloud-rain"></i> Precipitation
+                    </button>
+                    <button class="map-layer" data-layer="wind">
+                        <i class="fas fa-wind"></i> Wind
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="alerts-section" id="weatherAlerts">
+            <!-- Weather alerts will be loaded here -->
+        </div>
+
+        <div class="history-section">
+            <h3><i class="fas fa-chart-line"></i> Historical Weather Trends</h3>
+            <div class="history-controls">
+                <select id="historyMetric">
+                    <option value="temperature">Temperature</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="precipitation">Precipitation</option>
+                </select>
+                <select id="historyPeriod">
+                    <option value="7">Last 7 Days</option>
+                    <option value="30">Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                </select>
+            </div>
+            <div class="history-chart-container">
+                <canvas id="historyChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span id="notificationMessage"></span>
+            <button class="notification-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- We'll use Chart.js for the history chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
